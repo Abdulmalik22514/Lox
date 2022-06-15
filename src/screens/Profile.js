@@ -10,7 +10,6 @@ const Profile = ({navigation}) => {
   return (
     <View style={{backgroundColor: 'white'}}>
       <NotchResponsive />
-
       <View style={styles.topBar}>
         <Image
           source={icons.arrowleftIcon}

@@ -1,15 +1,10 @@
 import React, {useMemo} from 'react';
 import {FlatList, StyleSheet, Text, Pressable} from 'react-native';
 import {COLORS, SIZES} from '../constants';
-import moment from 'moment';
 
 const ITEM_WIDTH = SIZES.width * 0.12;
 const ITEM_HEIGHT = SIZES.font1*2.5;
 const ITEM_OFFSET = ITEM_WIDTH + 18;
-// interface Props {
-//   selectedDate: Date;
-//   setSelectedDate: (date: Date) => void;
-// }
 
 function dateSubtractDays(date, days) {
   var result = new Date(date);
@@ -50,7 +45,6 @@ export default function HorizontalCalendar({selectedDate, setSelectedDate}) {
 
   const renderItem = ({item}) => {
 
-    // console.log(moment(item).format("dddd"), "IIIITEM");
     const dayNumber = item.getDate();
     const dayString = getDayString(item);
     const isActive = isSameDay(selectedDate, item);

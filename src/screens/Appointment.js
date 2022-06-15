@@ -11,51 +11,17 @@ import RNCalendarEvents from 'react-native-calendar-events';
 const Appointment = ({navigation}) => {
   const [selectedDate, setSelectedDate] = useState(new Date());
 
-  const [eventTitle, setEventTile] = useState('');
-  const [eventLocation, setEventLocation] = useState('');
-  const [date, setDate] = useState(new Date());
-  const [open, setOpen] = useState(false);
-  const [dateValue, setdateValue] = useState('');
 
   useEffect(() => {
     RNCalendarEvents.requestPermissions()
       .then(res => {
-        console.log('Premission Response', res);
+        console.log('Permission Response', res);
       })
       .catch(error => {
         console.log(error);
       });
   }, []);
 
-  const createEvent = () => {
-    const newDate = new Date(date);
-    newDate.setHours(newDate.getHours() + 2);
-
-    RNCalendarEvents.saveEvent(eventTitle, {
-      calendarId: '3',
-      startDate: date.toISOString(),
-      endDate: newDate.toISOString(),
-      location: eventLocation,
-    })
-      .then(value => {
-        console.log('Event Id--->', value);
-      })
-      .catch(error => {
-        console.log(' Did Not work Threw an error --->', error);
-      });
-  };
-
-  const fetchEvent = eventId => {
-    RNCalendarEvents.findEventById(eventId).then(data => {
-      console.log('Event Data-->', data);
-    });
-  };
-
-  const deletEvent = eventId => {
-    RNCalendarEvents.removeEvent(eventId).then(val => {
-      console.log(val); //returns true if event is delted
-    });
-  };
 
   return (
     <ScrollView showsVerticalScrollIndicator={false}>
@@ -109,7 +75,6 @@ const Appointment = ({navigation}) => {
                   height: 4,
                   backgroundColor: COLORS.primary,
                   borderRadius:10
-                  // alignSelf: 'flex-end',
                 }}
               />
             </View>
@@ -278,7 +243,6 @@ const styles = StyleSheet.create({
   graph: {
     width: '100%',
     height: SIZES.height * 0.3,
-    // backgroundColor: COLORS.grey,
     flexDirection: 'row',
     justifyContent: 'space-between',
   },

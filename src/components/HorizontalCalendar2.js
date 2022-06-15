@@ -1,16 +1,11 @@
 import React, {useMemo} from 'react';
 import {FlatList, StyleSheet, Text, Pressable} from 'react-native';
 import {COLORS, SIZES} from '../constants';
-import moment from 'moment';
 import {FONTS} from '../constants/theme';
 
 const ITEM_WIDTH = SIZES.width * 0.12;
 const ITEM_HEIGHT = SIZES.font1 * 2.5;
 const ITEM_OFFSET = ITEM_WIDTH + 18;
-// interface Props {
-//   selectedDate: Date;
-//   setSelectedDate: (date: Date) => void;
-// }
 
 function dateSubtractDays(date, days) {
   var result = new Date(date);
@@ -50,7 +45,6 @@ export default function HorizontalCalendar2({selectedDate, setSelectedDate}) {
   };
 
   const renderItem = ({item}) => {
-    // console.log(moment(item).format("dddd"), "IIIITEM");
     const dayNumber = item.getDate();
     const dayString = getDayString(item);
     const isActive = isSameDay(selectedDate, item);
@@ -60,9 +54,7 @@ export default function HorizontalCalendar2({selectedDate, setSelectedDate}) {
         style={[
           styles.item,
           isActive && {
-            // backgroundColor: '#EFF1FC',
             borderRadius: 15,
-            // width: SIZES.font1 * 2,
             height: ITEM_HEIGHT,
           },
         ]}>
@@ -72,6 +64,7 @@ export default function HorizontalCalendar2({selectedDate, setSelectedDate}) {
         <Text style={[styles.dateOutput, isActive && styles.activeText]}>
           {dayNumber}
         </Text>
+      
         {isActive &&<Text style={{...FONTS.largeTitle, position:"absolute", color:"#0C9359" ,top:SIZES.font1*1.6}}>•</Text>}
       </Pressable>
     );

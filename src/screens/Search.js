@@ -12,7 +12,9 @@ const Search = ({navigation}) => {
         showsVerticalScrollIndicator={false}
         renderItem={({item, index}) => <SearchUser onPress={()=>navigation.navigate("Appointment")} index={index} item={item} />}
         ListHeaderComponent={
-          <>
+          // <>
+          <View>
+
             <View style={styles.image}>
               <Image style={styles.image} source={icons.searchImage} />
               <View
@@ -32,7 +34,9 @@ const Search = ({navigation}) => {
               }}>
               Hire a nurse
             </Text>
-          </>
+            </View>
+
+          // </>
         }
         ListFooterComponent={<View style={{marginTop: SIZES.font1 * 2.5}} />}
       />

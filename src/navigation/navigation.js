@@ -5,7 +5,6 @@ import {NavigationContainer} from '@react-navigation/native';
 import Onboarding from '../screens/Onboarding';
 import SignUp from '../screens/SignUp';
 import Login from '../screens/Login';
-import Home from '../screens/Home';
 import BottomTabs from './tabNav';
 import {COLORS} from '../constants';
 
@@ -23,7 +22,6 @@ const Navigator = () => {
         <Stack.Screen name="BottomTabs" component={BottomTabs} />
         <Stack.Screen name="SignUp" component={SignUp} />
         <Stack.Screen name="Login" component={Login} />
-        {/* <Stack.Screen name="Home" component={Home} /> */}
       </Stack.Navigator>
     </NavigationContainer>
   );

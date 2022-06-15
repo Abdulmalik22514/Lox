@@ -3,7 +3,7 @@ import React from 'react';
 import {COLORS, SIZES} from '../constants';
 import { FONTS } from '../constants/theme';
 
-const SearchUser = ({item, index,onPress}) => {
+const SearchUser = ({onPress}) => {
   return (
 
     <Pressable onPress={onPress} style={styles.root}>
@@ -25,7 +25,6 @@ export default SearchUser;
 
 const styles = StyleSheet.create({
   root: {
-    // backgroundColor: 'red',
     height: SIZES.font1 * 1.6,
     width: SIZES.width * 0.9,
     marginVertical: 10,
